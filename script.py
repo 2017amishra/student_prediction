@@ -1,3 +1,5 @@
+# python 3.6.4
+
 import pandas as pd
 import numpy as np
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
@@ -7,7 +9,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import f_classif
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 import warnings
 warnings.filterwarnings("ignore")
@@ -34,16 +35,16 @@ x_orig = x
 y_orig = y
 lda = LinearDiscriminantAnalysis()
 lda.fit(x_orig, y_orig)
-cs1 = cross_val_score(lda, x_orig, y_orig, cv=5)
-print("LDA:", cs1.mean())
+cs = cross_val_score(lda, x_orig, y_orig, cv=5)
+print("LDA:", cs.mean())
 
 # MLP
 x_orig = x
 y_orig = y
 mlp = MLPClassifier(hidden_layer_sizes=(300,150))
 mlp.fit(x_orig, y_orig)
-cs2 = cross_val_score(mlp, x_orig, y_orig, cv=5)
-print("MLP:", cs2.mean())
+cs = cross_val_score(mlp, x_orig, y_orig, cv=5)
+print("MLP:", cs.mean())
 
 # LDA with ANOVA
 x_orig = x
